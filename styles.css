@@ -29,10 +29,15 @@ aside {
   flex-direction: column;
 }
 
-aside > img {
+aside > picture {
+  width: 100%;
+}
+
+picture > img {
   object-fit: cover;
   width: 100%;
 }
+
 main {
   height: 100%;
   gap: 2.5rem;
