@@ -7,6 +7,7 @@ const screen = document.querySelector(".screen");
 const filterButtonsContainer = document.querySelector(
   ".filter-buttons-container"
 );
+
 class Jobs {
   jobs = [];
   uniqueArr = [];
@@ -67,8 +68,6 @@ class Jobs {
         // Remove the filter button
         filterButtonsContainer.removeChild(e.target.parentElement);
 
-        this.removeFilter(filterToRemove);
-
         // Reapply filters
         const filteredJobs = this.jobs.filter((job) => {
           return arr.every((filter) => job.filterInfo.includes(filter));
@@ -77,7 +76,6 @@ class Jobs {
         // Clear the main container before rendering the filtered jobs
         mainContainer.innerHTML = "";
         this.#renderJobs(filteredJobs);
-
         if (arr.length === 0) {
           // If no filters left, hide the screen
           screen.classList.add("hidden");
