@@ -30,10 +30,13 @@ aside {
 }
 
 aside > picture {
-  object-fit: cover;
   width: 100%;
 }
 
+picture > img {
+  object-fit: cover;
+  width: 100%;
+}
 
 main {
   height: 100%;
