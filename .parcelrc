@@ -1,4 +1,10 @@
 {
   "extends": "@parcel/config-default",
-  "bundler": "@parcel/bundler-default"
+  "rules": {
+    ".svg": "url",
+    ".png": "url",
+    ".jpg": "url",
+    ".jpeg": "url",
+    ".gif": "url"
+  }
 }
