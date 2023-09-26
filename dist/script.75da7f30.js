@@ -129,286 +129,130 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
 function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
 var mainContainer = document.querySelector("main");
 var screen = document.querySelector(".screen");
+var asideContainer = document.querySelector("aside");
 var filterButtonsContainer = document.querySelector(".filter-buttons-container");
-var jobsObject = [{
-  id: 1,
-  company: "Photosnap",
-  logo: "./images/photosnap.svg",
-  new: true,
-  featured: true,
-  position: "Senior Frontend Developer",
-  role: "Frontend",
-  level: "Senior",
-  postedAt: "1d ago",
-  contract: "Full Time",
-  location: "USA Only",
-  languages: ["HTML", "CSS", "JavaScript"],
-  tools: []
-}, {
-  id: 2,
-  company: "Manage",
-  logo: "./images/manage.svg",
-  new: true,
-  featured: true,
-  position: "Fullstack Developer",
-  role: "Fullstack",
-  level: "Midweight",
-  postedAt: "1d ago",
-  contract: "Part Time",
-  location: "Remote",
-  languages: ["Python"],
-  tools: ["React"]
-}, {
-  id: 3,
-  company: "Account",
-  logo: "./images/account.svg",
-  new: true,
-  featured: false,
-  position: "Junior Frontend Developer",
-  role: "Frontend",
-  level: "Junior",
-  postedAt: "2d ago",
-  contract: "Part Time",
-  location: "USA Only",
-  languages: ["JavaScript"],
-  tools: ["React", "Sass"]
-}, {
-  id: 4,
-  company: "MyHome",
-  logo: "./images/myhome.svg",
-  new: false,
-  featured: false,
-  position: "Junior Frontend Developer",
-  role: "Frontend",
-  level: "Junior",
-  postedAt: "5d ago",
-  contract: "Contract",
-  location: "USA Only",
-  languages: ["CSS", "JavaScript"],
-  tools: []
-}, {
-  id: 5,
-  company: "Loop Studios",
-  logo: "./images/loop-studios.svg",
-  new: false,
-  featured: false,
-  position: "Software Engineer",
-  role: "Fullstack",
-  level: "Midweight",
-  postedAt: "1w ago",
-  contract: "Full Time",
-  location: "Worldwide",
-  languages: ["JavaScript"],
-  tools: ["Ruby", "Sass"]
-}, {
-  id: 6,
-  company: "FaceIt",
-  logo: "./images/faceit.svg",
-  new: false,
-  featured: false,
-  position: "Junior Backend Developer",
-  role: "Backend",
-  level: "Junior",
-  postedAt: "2w ago",
-  contract: "Full Time",
-  location: "UK Only",
-  languages: ["Ruby"],
-  tools: ["RoR"]
-}, {
-  id: 7,
-  company: "Shortly",
-  logo: "./images/shortly.svg",
-  new: false,
-  featured: false,
-  position: "Junior Developer",
-  role: "Frontend",
-  level: "Junior",
-  postedAt: "2w ago",
-  contract: "Full Time",
-  location: "Worldwide",
-  languages: ["HTML", "JavaScript"],
-  tools: ["Sass"]
-}, {
-  id: 8,
-  company: "Insure",
-  logo: "./images/insure.svg",
-  new: false,
-  featured: false,
-  position: "Junior Frontend Developer",
-  role: "Frontend",
-  level: "Junior",
-  postedAt: "2w ago",
-  contract: "Full Time",
-  location: "USA Only",
-  languages: ["JavaScript"],
-  tools: ["Vue", "Sass"]
-}, {
-  id: 9,
-  company: "Eyecam Co.",
-  logo: "./images/eyecam-co.svg",
-  new: false,
-  featured: false,
-  position: "Full Stack Engineer",
-  role: "Fullstack",
-  level: "Midweight",
-  postedAt: "3w ago",
-  contract: "Full Time",
-  location: "Worldwide",
-  languages: ["JavaScript", "Python"],
-  tools: ["Django"]
-}, {
-  id: 10,
-  company: "The Air Filter Company",
-  logo: "./images/the-air-filter-company.svg",
-  new: false,
-  featured: false,
-  position: "Front-end Dev",
-  role: "Frontend",
-  level: "Junior",
-  postedAt: "1mo ago",
-  contract: "Part Time",
-  location: "Worldwide",
-  languages: ["JavaScript"],
-  tools: ["React", "Sass"]
-}];
+var jobCon = await fetch("./data.json");
+var jobsObject = await jobCon.json();
+var _uniqueArr = /*#__PURE__*/new WeakMap();
+var _arr = /*#__PURE__*/new WeakMap();
 var _filterJobs = /*#__PURE__*/new WeakSet();
+var _displayOnScreen = /*#__PURE__*/new WeakSet();
+var _removeFilterJobs = /*#__PURE__*/new WeakSet();
 var _renderJobs = /*#__PURE__*/new WeakSet();
-var Jobs = /*#__PURE__*/function () {
-  function Jobs() {
-    var _this = this;
-    _classCallCheck(this, Jobs);
-    _classPrivateMethodInitSpec(this, _renderJobs);
-    _classPrivateMethodInitSpec(this, _filterJobs);
-    _defineProperty(this, "jobs", []);
-    _defineProperty(this, "uniqueArr", []);
-    _defineProperty(this, "arr", []);
-    this.jobs = JSON.parse(JSON.stringify(jobsObject)) || [];
-    this.jobs.forEach(function (job) {
-      job.filterInfo = [job.role, job.level].concat(_toConsumableArray(job.languages), _toConsumableArray(job.tools));
-    });
-    _classPrivateMethodGet(this, _renderJobs, _renderJobs2).call(this, this.jobs);
-    mainContainer.addEventListener("click", function (e) {
-      var target = e.target;
-
-      // Check if the clicked element has the 'btn' class
-      if (target.classList.contains("btn")) {
-        _classPrivateMethodGet(_this, _filterJobs, _filterJobs2).call(_this, target);
-      }
-      _this.removeFilterJobs(_this.arr);
-    });
-  }
-  _createClass(Jobs, [{
-    key: "removeFilter",
-    value: function removeFilter(filterToRemove) {
-      var index = this.uniqueArr.indexOf(filterToRemove);
-      if (index !== -1) {
-        this.uniqueArr.splice(index, 1);
-      }
+var Jobs = /*#__PURE__*/_createClass(function Jobs() {
+  var _this = this;
+  _classCallCheck(this, Jobs);
+  _classPrivateMethodInitSpec(this, _renderJobs);
+  _classPrivateMethodInitSpec(this, _removeFilterJobs);
+  _classPrivateMethodInitSpec(this, _displayOnScreen);
+  _classPrivateMethodInitSpec(this, _filterJobs);
+  _defineProperty(this, "jobs", []);
+  _classPrivateFieldInitSpec(this, _uniqueArr, {
+    writable: true,
+    value: []
+  });
+  _classPrivateFieldInitSpec(this, _arr, {
+    writable: true,
+    value: new Set()
+  });
+  this.jobs = JSON.parse(JSON.stringify(jobsObject)) || [];
+  _classPrivateMethodGet(this, _renderJobs, _renderJobs2).call(this);
+  // const filterInfo = [this.jobs.role, this.jobs.level, ...this.jobs.languages, ...this.jobs.tools];
+  mainContainer.addEventListener("click", function (e) {
+    var target = e.target;
+    if (target.classList.contains("btn")) {
+      _classPrivateMethodGet(_this, _filterJobs, _filterJobs2).call(_this, target);
     }
-  }, {
-    key: "removeFilterJobs",
-    value: function removeFilterJobs(arr) {
-      var _this2 = this;
-      var closeButtons = document.querySelectorAll(".close");
-      closeButtons.forEach(function (closeButton) {
-        closeButton.addEventListener("click", function (e) {
-          var filterToRemove = e.target.parentElement.textContent.trim();
-
-          // Remove the filter from arr
-          var index = arr.indexOf(filterToRemove);
-          if (index !== -1) {
-            arr.splice(index, 1);
-          }
-
-          // Remove the filter button
-          filterButtonsContainer.removeChild(e.target.parentElement);
-
-          // Reapply filters
-          var filteredJobs = _this2.jobs.filter(function (job) {
-            return arr.every(function (filter) {
-              return job.filterInfo.includes(filter);
-            });
-          });
-
-          // Clear the main container before rendering the filtered jobs
-          mainContainer.innerHTML = "";
-          _classPrivateMethodGet(_this2, _renderJobs, _renderJobs2).call(_this2, filteredJobs);
-          if (arr.length === 0) {
-            // If no filters left, hide the screen
-            screen.classList.add("hidden");
-          }
-        });
-      });
+  });
+  asideContainer.addEventListener("click", function (e) {
+    var target = e.target;
+    if (target.classList.contains("close")) {
+      _classPrivateMethodGet(_this, _removeFilterJobs, _removeFilterJobs2).call(_this, target.parentElement);
     }
-  }, {
-    key: "displayOnScreen",
-    value: function displayOnScreen() {
-      var html = "";
-      this.uniqueArr.forEach(function (fil) {
-        html += "<button class=\"btn btn__close\" type=\"button\" title=".concat(fil, ">\n          ").concat(fil, "<img\n            class=\"close\"\n            src=\"./images/icon-remove.svg\"\n            alt=\"\"\n          /></button>");
-      });
-
-      // Insert the filter buttons into the filterButtonsContainer
-      filterButtonsContainer.innerHTML = html;
-    }
-  }]);
-  return Jobs;
-}();
+  });
+});
 function _filterJobs2(clicked) {
-  var _this3 = this;
-  this.arr.push(clicked.textContent);
-  this.uniqueArr = _toConsumableArray(new Set(this.arr));
-  this.displayOnScreen();
+  var _this2 = this;
+  _classPrivateFieldGet(this, _arr).add(clicked.textContent);
+  _classPrivateFieldSet(this, _uniqueArr, _toConsumableArray(_classPrivateFieldGet(this, _arr)));
+  _classPrivateMethodGet(this, _displayOnScreen, _displayOnScreen2).call(this);
   if (screen.children.length > 0) screen.classList.remove("hidden");
-
-  // Filter jobs based on selected filters
   var filteredJobs = this.jobs.filter(function (job) {
-    return _this3.uniqueArr.every(function (filter) {
-      return job.filterInfo.includes(filter);
+    return _classPrivateFieldGet(_this2, _uniqueArr).every(function (el) {
+      return job.filterInfo.includes(el);
     });
   });
-
-  // Clear the main container before rendering the filtered jobs
   mainContainer.innerHTML = "";
   _classPrivateMethodGet(this, _renderJobs, _renderJobs2).call(this, filteredJobs);
 }
+function _displayOnScreen2() {
+  var html = "";
+  _classPrivateFieldGet(this, _arr).forEach(function (el) {
+    html += "<button class=\"btn btn__close\" type=\"button\" title=".concat(el, " >\n          ").concat(el, " <img\n            class=\"close\"\n            src=\"./images/icon-remove.svg\"\n            alt=\"\"\n          /></button\n        >");
+  });
+  filterButtonsContainer.innerHTML = html;
+}
+function _removeFilterJobs2(clicked) {
+  var _this3 = this;
+  var filterToRemove = clicked.textContent.trim();
+
+  // Delete from Set
+  _classPrivateFieldGet(this, _arr).delete(filterToRemove);
+
+  // Update Array
+  _classPrivateFieldSet(this, _uniqueArr, _toConsumableArray(_classPrivateFieldGet(this, _arr)));
+  filterButtonsContainer.removeChild(clicked);
+  var filteredJobs = this.jobs.filter(function (job) {
+    return _classPrivateFieldGet(_this3, _uniqueArr).every(function (el) {
+      return job.filterInfo.includes(el);
+    });
+  });
+  mainContainer.innerHTML = "";
+  _classPrivateMethodGet(this, _renderJobs, _renderJobs2).call(this, filteredJobs);
+  if (_classPrivateFieldGet(this, _arr).size === 0) screen.classList.add("hidden");
+}
 function _renderJobs2() {
   var jobs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.jobs;
-  // if (jobs.length === 0) mainContainer.textContent = " No Jobs Available";
-  if (jobs) {
-    mainContainer.innerHTML = "";
-    jobs.forEach(function (job) {
-      var filterInfo = [job.role, job.level].concat(_toConsumableArray(job.languages), _toConsumableArray(job.tools));
-      var jobsFil = function jobsFil() {
-        var jobContainers = document.querySelectorAll(".job");
-        var filter = document.createElement("div");
-        filter.classList.add("filter");
-        filterInfo.forEach(function (fil) {
-          var html = "\n            <button class=\"btn\" type=\"button\" title=".concat(fil, ">").concat(fil, "</button>\n            ");
-          filter.insertAdjacentHTML("beforeend", html);
-        });
-        jobContainers.forEach(function (jobContainer) {
-          jobContainer.appendChild(filter);
-          if (job.new) jobContainer.classList.add("new__content");
-          if (job.featured) jobContainer.classList.add("featured__content");
-        });
-      };
-      var html = "\n        <section class=\"job\" id= ".concat(job.id, ">\n            <div class=\"main\">\n            <img class=\"job__image\" src= ").concat(job.logo, " alt=\"\" />\n            <div class=\"content\">\n                <div class=\"content__top\">\n                <p>").concat(job.company, "</p>\n                <p class=\"tab new\">NEW!</p>\n                <p class=\"tab featured\">FEATURED</p>\n                </div>\n                <h3 class=\"content__middle\">").concat(job.position, "</h3>\n                <div class=\"content__bottom\">\n                <p>").concat(job.postedAt, " </p>\n                <p>.</p>\n                <p>").concat(job.contract, " </p>\n                <p>.</p>\n                <p>").concat(job.location, " </p>\n                </div>\n            </div>\n            </div>\n        </section> \n            ");
-      mainContainer.insertAdjacentHTML("beforeend", html);
-      jobsFil();
-    });
-  }
+  if (!jobs) return;
+  jobs.forEach(function (job) {
+    job.filterInfo = [job.role, job.level].concat(_toConsumableArray(job.languages), _toConsumableArray(job.tools));
+    // job.push(filterInfo);
+
+    var displayFilters = function displayFilters() {
+      var jobsContainer = document.querySelectorAll(".job");
+      var filter = document.createElement("div");
+      filter.classList.add("filter");
+      job.filterInfo.forEach(function (fil) {
+        var html = "<button class=\"btn\" type=\"button\" title=".concat(fil, ">").concat(fil, "</button>");
+        filter.insertAdjacentHTML("beforeend", html);
+      });
+      jobsContainer.forEach(function (jobContainer) {
+        jobContainer.append(filter);
+        if (job.new) jobContainer.classList.add("new__content");
+        if (job.featured) jobContainer.classList.add("featured__content");
+      });
+    };
+    var html = "<section class=\"job\">\n        <div class=\"main\">\n          <img class=\"job__image\" src=".concat(job.logo, " alt=").concat(job.company, " />\n          <div class=\"content\">\n            <div class=\"content__top\">\n              <p>").concat(job.company, " </p>\n              <p class=\"tab new\">NEW!</p>\n              <p class=\"tab featured\">FEATURED</p>\n            </div>\n            <h3 class=\"content__middle\">").concat(job.position, "</h3>\n            <div class=\"content__bottom\">\n              <p>").concat(job.postedAt, "</p>\n              <p>.</p>\n              <p>").concat(job.contract, "</p>\n              <p>.</p>\n              <p>").concat(job.location, "</p>\n            </div>\n          </div>\n        </div>\n      </section>");
+    mainContainer.insertAdjacentHTML("beforeend", html);
+    displayFilters();
+  });
 }
 var jobs = new Jobs();
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -436,7 +280,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "13615" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "6723" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
