@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "./design/desktop-preview.jpg",
   "main": "data.js",
-  "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
