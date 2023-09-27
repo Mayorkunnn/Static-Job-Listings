@@ -117,11 +117,46 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"script.js":[function(require,module,exports) {
+})({"images/photosnap.svg":[function(require,module,exports) {
+module.exports = "/photosnap.698da370.svg";
+},{}],"images/manage.svg":[function(require,module,exports) {
+module.exports = "/manage.aa4aa2e2.svg";
+},{}],"images/account.svg":[function(require,module,exports) {
+module.exports = "/account.99ad997d.svg";
+},{}],"images/myhome.svg":[function(require,module,exports) {
+module.exports = "/myhome.a7764362.svg";
+},{}],"images/loop-studios.svg":[function(require,module,exports) {
+module.exports = "/loop-studios.8a2a4069.svg";
+},{}],"images/faceit.svg":[function(require,module,exports) {
+module.exports = "/faceit.e8bcb478.svg";
+},{}],"images/shortly.svg":[function(require,module,exports) {
+module.exports = "/shortly.0e0a7aa0.svg";
+},{}],"images/insure.svg":[function(require,module,exports) {
+module.exports = "/insure.0d190fee.svg";
+},{}],"images/eyecam-co.svg":[function(require,module,exports) {
+module.exports = "/eyecam-co.2a25e8ea.svg";
+},{}],"images/the-air-filter-company.svg":[function(require,module,exports) {
+module.exports = "/the-air-filter-company.9bf4d6e3.svg";
+},{}],"script.js":[function(require,module,exports) {
 /** @format */
 
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _photosnap = _interopRequireDefault(require("./images/photosnap.svg"));
+var _manage = _interopRequireDefault(require("./images/manage.svg"));
+var _account = _interopRequireDefault(require("./images/account.svg"));
+var _myhome = _interopRequireDefault(require("./images/myhome.svg"));
+var _loopStudios = _interopRequireDefault(require("./images/loop-studios.svg"));
+var _faceit = _interopRequireDefault(require("./images/faceit.svg"));
+var _shortly = _interopRequireDefault(require("./images/shortly.svg"));
+var _insure = _interopRequireDefault(require("./images/insure.svg"));
+var _eyecamCo = _interopRequireDefault(require("./images/eyecam-co.svg"));
+var _theAirFilterCompany = _interopRequireDefault(require("./images/the-air-filter-company.svg"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -144,12 +179,165 @@ function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classEx
 function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
 function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
 function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
+var images = {
+  photosnapLogo: _photosnap.default,
+  manageLogo: _manage.default,
+  accountLogo: _account.default,
+  myhomeLogo: _myhome.default,
+  loopStudiosLogo: _loopStudios.default,
+  faceitLogo: _faceit.default,
+  shortlyLogo: _shortly.default,
+  insureLogo: _insure.default,
+  eyecamCoLogo: _eyecamCo.default,
+  airFilterCompanyLogo: _theAirFilterCompany.default
+};
+var _default = images;
+exports.default = _default;
 var mainContainer = document.querySelector("main");
 var screen = document.querySelector(".screen");
 var asideContainer = document.querySelector("aside");
 var filterButtonsContainer = document.querySelector(".filter-buttons-container");
-var jobCon = await fetch("./data.json");
-var jobsObject = await jobCon.json();
+var jobsObject = [{
+  id: 1,
+  company: "Photosnap",
+  logo: _photosnap.default,
+  new: true,
+  featured: true,
+  position: "Senior Frontend Developer",
+  role: "Frontend",
+  level: "Senior",
+  postedAt: "1d ago",
+  contract: "Full Time",
+  location: "USA Only",
+  languages: ["HTML", "CSS", "JavaScript"],
+  tools: []
+}, {
+  id: 2,
+  company: "Manage",
+  logo: _manage.default,
+  new: true,
+  featured: true,
+  position: "Fullstack Developer",
+  role: "Fullstack",
+  level: "Midweight",
+  postedAt: "1d ago",
+  contract: "Part Time",
+  location: "Remote",
+  languages: ["Python"],
+  tools: ["React"]
+}, {
+  id: 3,
+  company: "Account",
+  logo: _account.default,
+  new: true,
+  featured: false,
+  position: "Junior Frontend Developer",
+  role: "Frontend",
+  level: "Junior",
+  postedAt: "2d ago",
+  contract: "Part Time",
+  location: "USA Only",
+  languages: ["JavaScript"],
+  tools: ["React", "Sass"]
+}, {
+  id: 4,
+  company: "MyHome",
+  logo: _myhome.default,
+  new: false,
+  featured: false,
+  position: "Junior Frontend Developer",
+  role: "Frontend",
+  level: "Junior",
+  postedAt: "5d ago",
+  contract: "Contract",
+  location: "USA Only",
+  languages: ["CSS", "JavaScript"],
+  tools: []
+}, {
+  id: 5,
+  company: "Loop Studios",
+  logo: _loopStudios.default,
+  new: false,
+  featured: false,
+  position: "Software Engineer",
+  role: "Fullstack",
+  level: "Midweight",
+  postedAt: "1w ago",
+  contract: "Full Time",
+  location: "Worldwide",
+  languages: ["JavaScript"],
+  tools: ["Ruby", "Sass"]
+}, {
+  id: 6,
+  company: "FaceIt",
+  logo: _faceit.default,
+  new: false,
+  featured: false,
+  position: "Junior Backend Developer",
+  role: "Backend",
+  level: "Junior",
+  postedAt: "2w ago",
+  contract: "Full Time",
+  location: "UK Only",
+  languages: ["Ruby"],
+  tools: ["RoR"]
+}, {
+  id: 7,
+  company: "Shortly",
+  logo: _shortly.default,
+  new: false,
+  featured: false,
+  position: "Junior Developer",
+  role: "Frontend",
+  level: "Junior",
+  postedAt: "2w ago",
+  contract: "Full Time",
+  location: "Worldwide",
+  languages: ["HTML", "JavaScript"],
+  tools: ["Sass"]
+}, {
+  id: 8,
+  company: "Insure",
+  logo: _insure.default,
+  new: false,
+  featured: false,
+  position: "Junior Frontend Developer",
+  role: "Frontend",
+  level: "Junior",
+  postedAt: "2w ago",
+  contract: "Full Time",
+  location: "USA Only",
+  languages: ["JavaScript"],
+  tools: ["Vue", "Sass"]
+}, {
+  id: 9,
+  company: "Eyecam Co.",
+  logo: _eyecamCo.default,
+  new: false,
+  featured: false,
+  position: "Full Stack Engineer",
+  role: "Fullstack",
+  level: "Midweight",
+  postedAt: "3w ago",
+  contract: "Full Time",
+  location: "Worldwide",
+  languages: ["JavaScript", "Python"],
+  tools: ["Django"]
+}, {
+  id: 10,
+  company: "The Air Filter Company",
+  logo: _theAirFilterCompany.default,
+  new: false,
+  featured: false,
+  position: "Front-end Dev",
+  role: "Frontend",
+  level: "Junior",
+  postedAt: "1mo ago",
+  contract: "Part Time",
+  location: "Worldwide",
+  languages: ["JavaScript"],
+  tools: ["React", "Sass"]
+}];
 var _uniqueArr = /*#__PURE__*/new WeakMap();
 var _arr = /*#__PURE__*/new WeakMap();
 var _filterJobs = /*#__PURE__*/new WeakSet();
@@ -255,7 +443,7 @@ function _renderJobs2() {
   });
 }
 var jobs = new Jobs();
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./images/photosnap.svg":"images/photosnap.svg","./images/manage.svg":"images/manage.svg","./images/account.svg":"images/account.svg","./images/myhome.svg":"images/myhome.svg","./images/loop-studios.svg":"images/loop-studios.svg","./images/faceit.svg":"images/faceit.svg","./images/shortly.svg":"images/shortly.svg","./images/insure.svg":"images/insure.svg","./images/eyecam-co.svg":"images/eyecam-co.svg","./images/the-air-filter-company.svg":"images/the-air-filter-company.svg"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -280,7 +468,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "6723" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "13864" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
