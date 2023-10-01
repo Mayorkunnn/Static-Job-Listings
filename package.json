@@ -2,9 +2,27 @@
   "name": "static-job-listings",
   "version": "1.0.0",
   "description": "./design/desktop-preview.jpg",
-  "main": "data.js",
-  "scripts": {},
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "targets": {
+    "default": {
+      "includeNodeModules": true
+    }
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "vercel": "^32.1.0",
+    "parcel": "^2.9.3"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
 }

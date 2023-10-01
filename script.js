@@ -2,6 +2,7 @@
 
 "use strict";
 
+import iconRemove from "./images/icon-remove.svg";
 import photosnapLogo from "./images/photosnap.svg";
 import manageLogo from "./images/manage.svg";
 import accountLogo from "./images/account.svg";
@@ -232,7 +233,7 @@ class Jobs {
       html += `<button class="btn btn__close" type="button" title=${el} >
           ${el} <img
             class="close"
-            src="./images/icon-remove.svg"
+            src=${iconRemove}
             alt=""
           /></button
         >`;
