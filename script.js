@@ -187,7 +187,6 @@ const jobsObject = [
     tools: ["React", "Sass"],
   },
 ];
-
 class Jobs {
   jobs = [];
   #uniqueArr = [];
